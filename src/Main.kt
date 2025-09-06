@@ -13,8 +13,9 @@ fun main() {
             2 -> addReader(actions)
             3 -> findBook(actions)
             4 -> giveBook(actions)
-            5 -> actions.printAllBooks()
-            6 -> return
+            5 -> giveBackBook(actions)
+            6 -> actions.printAllBooks()
+            7 -> return
             else -> println("Your choice not from the list")
         }
     }
@@ -27,8 +28,9 @@ private fun printMenu() {
     println("2) add reader")
     println("3) find book")
     println("4) give book")
-    println("5) print all books")
-    println("6) exit")
+    println("5) give back book")
+    println("6) print all books")
+    println("7) exit")
 }
 
 private fun userChoice(): Int{
@@ -46,7 +48,7 @@ private fun userChoice(): Int{
 private fun addBook (actions: ActionsImpl){
     println("Enter the book title")
     while (true){
-        val title = readLine()
+        val title = readLine()?.trim()
 
         if (title.isNullOrBlank()) {
             println("Invalid input. Try again with correct title")
@@ -60,7 +62,7 @@ private fun addBook (actions: ActionsImpl){
 private fun addReader (actions: ActionsImpl){
     println("Enter the reader name")
     while (true){
-        val name = readLine()
+        val name = readLine()?.trim()
 
         if (name.isNullOrBlank()) {
             println("Invalid input. Try again with correct name")
@@ -74,7 +76,7 @@ private fun addReader (actions: ActionsImpl){
 private fun findBook(actions: ActionsImpl){
     println("Enter the book title")
     while (true){
-        val title = readLine()
+        val title = readLine()?.trim()
 
         if (title.isNullOrBlank()) {
             println("Invalid input. Try again with correct title")
@@ -86,15 +88,41 @@ private fun findBook(actions: ActionsImpl){
 }
 
 private fun giveBook(actions: ActionsImpl){
-    println("Enter the book title")
+    println("Enter the book title and reader name")
     while (true){
-        val title = readLine()
+        val title = readLine()?.trim()
+        val name = readLine()?.trim()
 
         if (title.isNullOrBlank()) {
             println("Invalid input. Try again with correct title")
             continue
         }
-        actions.giveBook(title)
+        if (name.isNullOrBlank()) {
+            println("Invalid input. Try again with correct name")
+            continue
+        }
+
+        actions.giveBook(title, name)
+        break
+    }
+}
+
+private fun giveBackBook(actions: ActionsImpl){
+    println("Enter the book title and reader name")
+    while (true){
+        val title = readLine()?.trim()
+        val name = readLine()?.trim()
+
+        if (title.isNullOrBlank()) {
+            println("Invalid input. Try again with correct title")
+            continue
+        }
+        if (name.isNullOrBlank()) {
+            println("Invalid input. Try again with correct name")
+            continue
+        }
+
+        actions.giveBackBook(title, name)
         break
     }
 }

@@ -7,7 +7,9 @@ interface IActions {
 
     fun findBook(title: String)
 
-    fun giveBook(title: String)
+    fun giveBook(title: String, name: String)
+
+    fun giveBackBook(title: String, name: String)
 
     fun printAllBooks()
 }

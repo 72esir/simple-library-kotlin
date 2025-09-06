@@ -1,5 +1,6 @@
 package models
 
 class Reader (val name: String) {
-    private val _name = name
+    val _name = name
+    var _books = mutableListOf<Book>()
 }
