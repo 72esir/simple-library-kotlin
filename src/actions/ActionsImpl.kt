@@ -6,28 +6,42 @@ import models.Reader
 
 class ActionsImpl (val books: MutableList<Book>, val readers: MutableList<Reader>): IActions  {
     override fun addBook(title: String) {
-        TODO("Not yet implemented")
         val book: Book = Book(title)
-
         books.add(book)
         println("Book added!")
     }
 
     override fun addReader(name: String) {
-        TODO("Not yet implemented")
-        readers.add(name)
+        val reader = Reader(name)
+        readers.add(reader)
+        println("Reader added!")
     }
 
-    override fun findBook(title: String) {
-        TODO("Not yet implemented")
+    override fun findBook(title: String){
+        for (book in books){
+            if (book.title == title){
+                println("Your book here!")
+                return
+            }
+        }
+        println("Your book does not here!")
     }
 
-    override fun giveBook(title: String) {
-        TODO("Not yet implemented")
+    override fun giveBook(title: String){
+        for (book in books){
+            if (book.title == title){
+                books.remove(book)
+                println("Book were given!")
+                return
+            }
+        }
+        println("Your book does not here!")
     }
 
     override fun printAllBooks() {
-        TODO("Not yet implemented")
-
+        for (book in books){
+            println(book.title)
+        }
+        println()
     }
 }
