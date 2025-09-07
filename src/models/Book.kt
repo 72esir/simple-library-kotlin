@@ -1,7 +1,6 @@
 package models
 
-class Book (val input_title: String){
-    private val _title: String = input_title
+class Book (private val _title: String){
     private var _location: String = "library"
 
     val title

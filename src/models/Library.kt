@@ -1,6 +1,12 @@
 package models
 
 class Library {
-    var books = mutableListOf<Book>()
-    var readers = mutableListOf<Reader>()
+    private var _books = mutableListOf<Book>()
+    private var _readers = mutableListOf<Reader>()
+
+    val books
+        get() = _books
+
+    val readers
+        get() = _readers
 }

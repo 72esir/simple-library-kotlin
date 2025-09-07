@@ -29,7 +29,7 @@ class ActionsImpl (val books: MutableList<Book>, val readers: MutableList<Reader
                 return
             }
         }
-        println("Your book does not here!")
+        println("This book does not here!")
     }
 
     override fun giveBook(title: String, name: String){
@@ -48,7 +48,7 @@ class ActionsImpl (val books: MutableList<Book>, val readers: MutableList<Reader
                 return
             }
         }
-        println("Your book does not here!")
+        println("This book does not here!")
     }
 
     override fun giveBackBook(title: String, name: String) {
