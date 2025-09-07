@@ -37,9 +37,9 @@ private fun userChoice(): Int{
     while (true){
         val choice: Int = try {
             readLine()?.toInt() ?: -1
-        } catch (e: NullPointerException) {
+        } catch (e: NumberFormatException) {
             println("Invalid input. Try again with correct number")
-            -1
+            return -1
         }
         return choice
     }
